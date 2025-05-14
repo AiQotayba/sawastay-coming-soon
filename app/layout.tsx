@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
 import type { Metadata } from "next"
+import Head from "next/head"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -82,6 +83,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" suppressHydrationWarning>
+      <Head>
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      </Head>
       <body className={inter.className}>
         <LanguageProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
