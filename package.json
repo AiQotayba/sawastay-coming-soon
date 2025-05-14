@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "s": "ssh -i ~/.ssh/id_ed25519 sawastay@69.62.114.139"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

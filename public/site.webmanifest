@@ -1,0 +1,15 @@
+{
+  "name": "SawaStay",
+  "short_name": "SawaStay",
+  "icons": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "192x192",
+  "type": "image/png"
+} 
+  ],
+  "theme_color": "#F94A6C",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}

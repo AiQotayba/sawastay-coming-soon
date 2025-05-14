@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { Mail, Phone, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/components/language-provider"
+import Script from "next/script"
 
 export default function ComingSoonPage() {
   const [timeLeft, setTimeLeft] = useState({
@@ -47,8 +48,26 @@ export default function ComingSoonPage() {
     setMounted(true)
   }, [])
 
+
+  // بيانات منظمة لمحركات البحث (JSON-LD)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "SawaStay",
+    url: "https://sawastay.com",
+    logo: "https://sawastay.com/logo.jpg",
+    description: "منصة SawaStay تربط المضيفين بالباحثين عن إقامة مريحة وآمنة في مختلف المناطق.",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+963 935 919 671",
+      contactType: "customer service",
+      email: "contact@sawastay.com",
+    },
+    // sameAs: ["https://facebook.com/sawastay", "https://twitter.com/sawastay", "https://instagram.com/sawastay"],
+  }
   return (
     <div dir={language === "ar" ? "rtl" : "ltr"} className="min-h-screen bg-white overflow-hidden ">
+      <Script id="json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Animated background elements */}
       <div className="fixed inset-0 z-0 opacity-5">
         <motion.div
@@ -81,7 +100,14 @@ export default function ComingSoonPage() {
       <div className="relative z-10 container mx-auto px-4 py-12 flex flex-col min-h-screen">
         <header className="flex justify-center mb-8">
           <motion.div initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
-            <Image src="/logo.png" alt="SawaStay Logo" width={200} height={200} className="h-auto" priority />
+            <Image
+              src="/logo.png"
+              alt="SawaStay Logo - منصة للإقامة المريحة والآمنة"
+              width={200}
+              height={200}
+              className="h-auto"
+              priority
+            />
           </motion.div>
           <div className="absolute top-6 right-6 flex items-center">
             <Button
@@ -173,38 +199,37 @@ export default function ComingSoonPage() {
       </div>
 
       {/* Floating animated house icons */}
-      {mounted &&
-        [...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="fixed z-0"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              opacity: 0.2,
-            }}
-            animate={{
-              x: [
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth,
-              ],
-              y: [
-                Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight,
-              ],
-              opacity: [0.1, 0.2, 0.1],
-            }}
-            transition={{
-              duration: 20 + i * 5,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-            }}
-          >
-            <div className="text-[#F94A6C]/10 text-5xl">🏠</div>
-          </motion.div>
-        ))}
+      {mounted && [...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="fixed z-0"
+          initial={{
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            opacity: 0.2,
+          }}
+          animate={{
+            x: [
+              Math.random() * window.innerWidth,
+              Math.random() * window.innerWidth,
+              Math.random() * window.innerWidth,
+            ],
+            y: [
+              Math.random() * window.innerHeight,
+              Math.random() * window.innerHeight,
+              Math.random() * window.innerHeight,
+            ],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{
+            duration: 20 + i * 5,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+        >
+          <div className="text-[#F94A6C]/10 text-5xl">🏠</div>
+        </motion.div>
+      ))}
     </div>
   )
 }
