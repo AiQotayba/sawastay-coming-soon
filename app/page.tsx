@@ -48,7 +48,7 @@ export default function ComingSoonPage() {
   }, [])
 
   return (
-    <div dir={language === "ar" ? "rtl" : "ltr"} className="min-h-screen bg-white overflow-hidden">
+    <div dir={language === "ar" ? "rtl" : "ltr"} className="min-h-screen bg-white overflow-hidden ">
       {/* Animated background elements */}
       <div className="fixed inset-0 z-0 opacity-5">
         <motion.div
@@ -103,7 +103,7 @@ export default function ComingSoonPage() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="mb-12"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-[#F94A6C] mb-6">{t("welcome")}</h1>
+            <h1 className="text-2xl md:text-6xl font-bold text-[#F94A6C] mb-6 text-nowrap">{t("welcome")}</h1>
             <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">{t("description")}</p>
           </motion.div>
 
@@ -115,7 +115,7 @@ export default function ComingSoonPage() {
             className="mb-16"
           >
             <h2 className="text-2xl font-semibold text-gray-700 mb-6">{t("coming.soon")}</h2>
-            <div className="flex justify-center gap-4 md:gap-8">
+            <div className="flex  justify-center gap-4 md:gap-8">
               {[
                 { label: t("seconds"), value: timeLeft.seconds },
                 { label: t("minutes"), value: timeLeft.minutes },
@@ -129,8 +129,8 @@ export default function ComingSoonPage() {
                   transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
                   className="flex flex-col items-center"
                 >
-                  <div className="bg-white shadow-lg rounded-xl w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-2 border-2 border-[#F94A6C]/20">
-                    <span className="text-3xl md:text-4xl font-bold text-[#F94A6C]">{item.value}</span>
+                  <div className="bg-white shadow-lg rounded-xl w-14 h-14 md:w-24 md:h-24 flex items-center justify-center mb-2 border-2 border-[#F94A6C]/20">
+                    <span className="text-2xl md:text-4xl font-bold text-[#F94A6C]">{item.value}</span>
                   </div>
                   <span className="text-sm text-gray-600">{item.label}</span>
                 </motion.div>
