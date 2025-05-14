@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SawaStay - منصة الإقامة المريحة والآمنة",
     description:
-      "منصة SawaStay تربط المضيفين بالباحثين عن إقامة مريحة وآمنة في مختلف المناط��. انضم إلينا قبل الإطلاق في 1 حزيران 2025.",
+      "منصة SawaStay تربط المضيفين بالباحثين عن إقامة مريحة وآمنة في مختلف المناطق. انضم إلينا قبل الإطلاق في 1 حزيران 2025.",
     url: "https://sawastay.com",
     siteName: "SawaStay",
     images: [
