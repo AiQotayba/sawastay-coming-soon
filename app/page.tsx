@@ -17,6 +17,8 @@ export default function ComingSoonPage() {
 
   const { language, setLanguage, t } = useLanguage()
 
+  const [mounted, setMounted] = useState(false)
+
   // Calculate time until June 1, 2025
   useEffect(() => {
     const targetDate = new Date("2025-06-01T00:00:00")
@@ -39,6 +41,10 @@ export default function ComingSoonPage() {
     const timer = setInterval(calculateTimeLeft, 1000)
 
     return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    setMounted(true)
   }, [])
 
   return (
@@ -167,37 +173,38 @@ export default function ComingSoonPage() {
       </div>
 
       {/* Floating animated house icons */}
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="fixed z-0"
-          initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-            opacity: 0.2,
-          }}
-          animate={{
-            x: [
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
-            ],
-            y: [
-              Math.random() * window.innerHeight,
-              Math.random() * window.innerHeight,
-              Math.random() * window.innerHeight,
-            ],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{
-            duration: 20 + i * 5,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        >
-          <div className="text-[#F94A6C]/10 text-5xl">🏠</div>
-        </motion.div>
-      ))}
+      {mounted &&
+        [...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="fixed z-0"
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              opacity: 0.2,
+            }}
+            animate={{
+              x: [
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerWidth,
+              ],
+              y: [
+                Math.random() * window.innerHeight,
+                Math.random() * window.innerHeight,
+                Math.random() * window.innerHeight,
+              ],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 20 + i * 5,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "easeInOut",
+            }}
+          >
+            <div className="text-[#F94A6C]/10 text-5xl">🏠</div>
+          </motion.div>
+        ))}
     </div>
   )
 }
