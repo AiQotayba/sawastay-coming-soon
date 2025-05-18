@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   verification: {
-    google: "google-site-verification-code", // استبدل بكود التحقق الخاص بك
+    google: "9zhUznV_V308aTPwlJSYi7PSjzq87Z7j2ifJ0uXwgAA", // استبدل بكود التحقق الخاص بك
   },
 }
 
